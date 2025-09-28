@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Đèn trời Trung Thu - HTML & CSS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <audio id="bgm" src="asset/audio/thangcuoi.mp3" preload="auto" autoplay muted playsinline loop></audio>
+  <div class="scene" role="img" aria-label="Bầu trời đêm và mặt trăng">
+    <div class="moon" aria-hidden="true"></div>
+    <!-- Multiple flying lanterns -->
+    <div class="fly" style="left:15vw; --dur:24s; --delay:-3s">
+      <div class="lantern-container" data-wish="Chúc bạn nhiều phúc lộc!">
+        <div class="lantern" style="--scale:.75; --swayDur:6.5s">
+          <div class="lantern-top"></div>
+          <div class="lantern-body">
+            <div class="flame"></div>
+            <div class="vn-text">phúc</div>
+          </div>
+          <div class="lantern-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fly" style="left:45vw; --dur:20s; --delay:-10s">
+      <div class="lantern-container" data-wish="An khang thịnh vượng!">
+        <div class="lantern" style="--scale:.65; --swayDur:5.5s">
+          <div class="lantern-top"></div>
+          <div class="lantern-body">
+            <div class="flame"></div>
+            <div class="vn-text">an</div>
+          </div>
+          <div class="lantern-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fly" style="left:75vw; --dur:28s; --delay:-18s">
+      <div class="lantern-container" data-wish="Hạnh phúc viên mãn!">
+        <div class="lantern" style="--scale:.55; --swayDur:7s">
+          <div class="lantern-top"></div>
+          <div class="lantern-body">
+            <div class="flame"></div>
+            <div class="vn-text">lạc</div>
+          </div>
+          <div class="lantern-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fly" style="left:30vw; --dur:26s; --delay:-6s">
+      <div class="lantern-container" data-wish="Bình an cả năm!">
+        <div class="lantern" style="--scale:.7; --swayDur:6.2s">
+          <div class="lantern-top"></div>
+          <div class="lantern-body">
+            <div class="flame"></div>
+            <div class="vn-text">bình</div>
+          </div>
+          <div class="lantern-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fly" style="left:60vw; --dur:22s; --delay:-14s">
+  <div class="lantern-container special-fb" data-wish="hạnh phúc sớm tới!">
+        <div class="lantern" style="--scale:.8; --swayDur:5.8s">
+          <div class="lantern-top"></div>
+          <div class="lantern-body">
+            <div class="flame"></div>
+            <div class="vn-text">tình</div>
+          </div>
+          <div class="lantern-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fly" style="left:10vw; --dur:30s; --delay:-20s">
+      <div class="lantern-container" data-wish="Vui vẻ mỗi ngày!">
+        <div class="lantern" style="--scale:.6; --swayDur:6.8s">
+          <div class="lantern-top"></div>
+          <div class="lantern-body">
+            <div class="flame"></div>
+            <div class="vn-text">vui</div>
+          </div>
+          <div class="lantern-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fly" style="left:88vw; --dur:24s; --delay:-12s">
+      <div class="lantern-container" data-wish="Khỏe mạnh sung mãn!">
+        <div class="lantern" style="--scale:.65; --swayDur:6.1s">
+          <div class="lantern-top"></div>
+          <div class="lantern-body">
+            <div class="flame"></div>
+            <div class="vn-text">khỏe</div>
+          </div>
+          <div class="lantern-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wish popup overlay -->
+  <div class="wish-overlay" id="wishOverlay" role="dialog" aria-modal="true" aria-labelledby="wishTitle" aria-describedby="wishText">
+    <div class="wish-box">
+      <img class="wish-img" src="/asset/img/rabbit.png" alt="rabbit" />
+      <div class="wish-text" id="wishText">---</div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+ 
+</body>
+</html>
+
