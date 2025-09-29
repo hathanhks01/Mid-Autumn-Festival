@@ -33,18 +33,46 @@
   }catch(e){}
 })();
 
-// Nút bật/tắt audio
+// Nút bật/tắt audio với kiểm tra trạng thái khi load
 (function(){
   var audio = document.getElementById('bgm');
   var btn = document.getElementById('audioToggleBtn');
   if(!audio || !btn) return;
+
   function updateBtn() {
-    btn.textContent = audio.muted ? '🔇' : '🔈';
+    btn.textContent = audio.muted || audio.paused ? '🔇' : '🔈';
   }
+
   btn.addEventListener('click', function() {
-    audio.muted = !audio.muted;
+    if(audio.paused) {
+      audio.muted = false;
+      audio.volume = 0.6;
+      audio.play().catch(function(){});
+    } else {
+      audio.muted = !audio.muted;
+    }
     updateBtn();
   });
+
+  // Khi trang vừa load, nếu audio bị chặn thì để nút ở trạng thái tắt
+  setTimeout(function(){
+    if(audio.paused || audio.muted) {
+      updateBtn();
+      // Thử bật lại audio sau 1s
+      audio.muted = false;
+      audio.volume = 0.6;
+      audio.play().then(function(){
+        updateBtn();
+      }).catch(function(){
+        // Nếu vẫn bị chặn, giữ trạng thái tắt
+        audio.muted = true;
+        updateBtn();
+      });
+    } else {
+      updateBtn();
+    }
+  }, 1000);
+
   updateBtn();
 })();
 
