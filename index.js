@@ -33,7 +33,6 @@
   }catch(e){}
 })();
 
-// Nút bật/tắt audio với kiểm tra trạng thái khi load
 (function(){
   var audio = document.getElementById('bgm');
   var btn = document.getElementById('audioToggleBtn');
@@ -54,17 +53,14 @@
     updateBtn();
   });
 
-  // Khi trang vừa load, nếu audio bị chặn thì để nút ở trạng thái tắt
   setTimeout(function(){
     if(audio.paused || audio.muted) {
       updateBtn();
-      // Thử bật lại audio sau 1s
       audio.muted = false;
       audio.volume = 0.6;
       audio.play().then(function(){
         updateBtn();
       }).catch(function(){
-        // Nếu vẫn bị chặn, giữ trạng thái tắt
         audio.muted = true;
         updateBtn();
       });
@@ -93,3 +89,15 @@
     scene.appendChild(star);
   }
 })();
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "F12" || 
+        (e.ctrlKey && e.shiftKey && e.key === "I") || 
+        (e.ctrlKey && e.key === "U") || 
+        (e.ctrlKey && e.shiftKey && e.key === "J")) {
+        e.preventDefault();
+    }
+});
