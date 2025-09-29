@@ -33,6 +33,21 @@
   }catch(e){}
 })();
 
+// Nút bật/tắt audio
+(function(){
+  var audio = document.getElementById('bgm');
+  var btn = document.getElementById('audioToggleBtn');
+  if(!audio || !btn) return;
+  function updateBtn() {
+    btn.textContent = audio.muted ? '🔇' : '🔈';
+  }
+  btn.addEventListener('click', function() {
+    audio.muted = !audio.muted;
+    updateBtn();
+  });
+  updateBtn();
+})();
+
 
 (function createStars(){
   const scene = document.querySelector('.scene');
