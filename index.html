@@ -14,17 +14,17 @@
     <div class="moon" aria-hidden="true"></div>
     <!-- Multiple flying lanterns -->
     <div class="fly" style="left:15vw; --dur:24s; --delay:-3s">
-      <div class="lantern-container" data-wish="Chúc bạn nhiều phúc lộc!">
-        <div class="lantern" style="--scale:.75; --swayDur:6.5s">
-          <div class="lantern-top"></div>
-          <div class="lantern-body">
-            <div class="flame"></div>
-            <div class="vn-text">phúc</div>
-          </div>
-          <div class="lantern-bottom"></div>
-        </div>
+  <div class="lantern-container" data-wish="Chúc bạn nhiều phúc lộc!" id="lantern-phuc">
+    <div class="lantern" style="--scale:.75; --swayDur:6.5s">
+      <div class="lantern-top"></div>
+      <div class="lantern-body">
+        <div class="flame"></div>
+        <div class="vn-text">phúc</div>
       </div>
+      <div class="lantern-bottom"></div>
     </div>
+  </div>
+</div>
 
     <div class="fly" style="left:45vw; --dur:20s; --delay:-10s">
       <div class="lantern-container" data-wish="An khang thịnh vượng!">
@@ -111,6 +111,13 @@
       <div class="wish-text" id="wishText">---</div>
     </div>
   </div>
+  <!-- Popup đặc biệt cho lantern phúc -->
+<div class="wish-overlay" id="phucOverlay" style="display:none;" role="dialog" aria-modal="true">
+  <div class="wish-box">
+    <img src="./asset/img/chieu thu wedding.jpg" alt="Ảnh bạn tôi" style="width:100px;height:100px;border-radius:50%;object-fit:cover;">
+    <div style="margin-top:12px;font-size:16px;color:#252e62;">Chúc bạn tôi luôn vui vẻ và hạnh phúc!</div>
+  </div>
+</div>
 <button id="audioToggleBtn" class="audio-toggle-btn" title="Bật/tắt nhạc">🔈</button>
   <script src="index.js"></script>
  
