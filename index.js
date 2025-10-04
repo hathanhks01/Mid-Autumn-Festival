@@ -1,26 +1,38 @@
-(function(){
+(function () {
   var overlay = document.getElementById('wishOverlay');
   var text = document.getElementById('wishText');
-  function openWish(msg){ text.textContent = msg || ''; overlay.classList.add('active'); }
-  function closeWish(){ overlay.classList.remove('active'); }
-  document.querySelectorAll('.lantern-container').forEach(function(el){
-    if(el.classList.contains('special-fb')){
-      el.addEventListener('click', function(e){
-        var msg = el.getAttribute('data-wish') || 'Chúc Trung Thu vui vẻ!';
-        openWish(msg);
-        setTimeout(function(){
-         window.location.href = "https://www.instagram.com/w._.iiiii/";
+  var gif = document.getElementById('wishGif').querySelector('img');
+
+  function openWish(msg, gifSrc) {
+    text.textContent = msg || '';
+    gif.src = gifSrc || './asset/img/default.gif'; // GIF mặc định nếu không có
+    overlay.classList.add('active');
+  }
+
+  function closeWish() {
+    overlay.classList.remove('active');
+  }
+
+  document.querySelectorAll('.lantern-container').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var msg = el.getAttribute('data-wish') || 'Chúc Trung Thu vui vẻ!';
+      var gifSrc = el.getAttribute('data-gif') || './asset/img/default.gif';
+      openWish(msg, gifSrc);
+      if (el.classList.contains('special-fb')) {
+        setTimeout(function () {
+          window.location.href = "https://www.instagram.com/w._.iiiii/";
         }, 3000);
-      });
-    }else{
-      el.addEventListener('click', function(e){
-        var msg = el.getAttribute('data-wish') || 'Chúc Trung Thu vui vẻ!';
-        openWish(msg);
-      });
-    }
+      }
+    });
   });
-  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeWish(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeWish(); });
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeWish();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeWish();
+  });
 })();
 
 (function(){
@@ -93,3 +105,11 @@ document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 });
 
+document.addEventListener("keydown", function(e) {
+    if (e.key === "F12" || 
+        (e.ctrlKey && e.shiftKey && e.key === "I") || 
+        (e.ctrlKey && e.key === "U") || 
+        (e.ctrlKey && e.shiftKey && e.key === "J")) {
+        e.preventDefault();
+    }
+});
